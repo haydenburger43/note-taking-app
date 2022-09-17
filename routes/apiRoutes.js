@@ -21,12 +21,11 @@ router.get('/index.js', (req, res) => {
   });
 
   router.post('/index.js', (req, res) => {
-    req.body.id = animals.length.toString();
   
     if (!validatenote(req.body)) {
       res.status(400)
     } else {
-      const animal = createNewNote(notes);
+      const note = createNewNote(notes);
       res.json(note);
     }
   });
