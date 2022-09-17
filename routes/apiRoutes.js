@@ -3,7 +3,7 @@ const fs = require("fs");
 const path = require(path);
 const db = require(db);
 
-router.get('/index.js', (req, res) => {
+router.get('/notes', (req, res) => {
     let results = notes;
     if (req.query) {
       results = filterByQuery(req.query, results);
@@ -11,7 +11,7 @@ router.get('/index.js', (req, res) => {
     res.json(results);
   });
 
-  router.get('/index.js/', (req, res) => {
+  router.get('/notes/', (req, res) => {
     const result = findById(req.params.id, notes);
     if (result) {
       res.json(result);
@@ -20,7 +20,7 @@ router.get('/index.js', (req, res) => {
     }
   });
 
-  router.post('/index.js', (req, res) => {
+  router.post('/notes', (req, res) => {
   
     if (!validatenote(req.body)) {
       res.status(400)
